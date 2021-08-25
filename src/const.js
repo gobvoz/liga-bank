@@ -1,5 +1,7 @@
 export const AppRoute = {
   ROOT: `/`,
+  CONVERTER: `/converter`,
+  QUESTIONS: `/questions`
 };
 
 export const MENU_TYPE = {

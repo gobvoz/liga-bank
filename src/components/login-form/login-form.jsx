@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Validations, KeyName, AuthorizationStatus } from '../../const';
@@ -76,7 +76,7 @@ const LoginForm = props => {
             </div>
           </div>
           <button
-            className="login-popup__btn close-btn button"
+            className="login-popup__btn button"
             type="button"
             aria-label="Закрыть"
             onClick={handleClose}></button>
@@ -141,7 +141,7 @@ const LoginForm = props => {
               </span>
             )}
           </label>
-          <Link to="#!" className="login-form__link">
+          <Link to="#" className="login-form__link">
             Забыли пароль?
           </Link>
           <button className="login-form__submit button" type="submit">

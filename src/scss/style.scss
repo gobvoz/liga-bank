@@ -1,6 +1,7 @@
 @import './fonts.scss';
 @import './colors.scss';
 @import './global.scss';
+@import './breakpoints.scss';
 
 @import './blocks/visually-hidden.scss';
 @import './blocks/container.scss';
@@ -17,4 +18,5 @@
 @import './blocks/address.scss';
 @import './blocks/phone.scss';
 @import './blocks/social.scss';
+@import './blocks/popup.scss';
 @import './blocks/login-form.scss';

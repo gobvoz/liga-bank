@@ -1,3 +1,9 @@
 .page-main {
   margin-top: 91px;
+  @media screen and(max-width: $tablet) {
+    margin-top: 69px;
+  }
+  @media screen and(max-width: $mobile) {
+    margin-top: 48px;
+  }
 }
