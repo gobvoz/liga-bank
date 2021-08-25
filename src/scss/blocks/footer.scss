@@ -1,0 +1,70 @@
+.page-footer {
+  margin-top: 110px;
+  background-color: $background-blue;
+}
+
+.page-footer__wrapper {
+  display: flex;
+  padding: 49px 0;
+}
+
+.page-footer__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 81px;
+  padding-top: 5px;
+}
+
+.page-footer__item {
+  margin-bottom: 9px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.page-footer__link {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22.4px;
+  color: $black;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.4;
+  }
+}
+
+.page-footer__cellphone {
+  margin-left: 103px;
+  padding-top: 8px;
+
+  &::before {
+    content: url(../../img/cell-phone-icon.svg);
+    position: absolute;
+    top: 10px;
+    left: -24px;
+  }
+}
+
+.page-footer__phone {
+  margin-left: 107px;
+  padding-top: 8px;
+
+  &::before {
+    content: url(../../img/phone-icon.svg);
+    position: absolute;
+    top: 10px;
+    left: -27px;
+  }
+}
+
+.page-footer__social {
+  margin-left: 41px;
+  padding-top: 10px;
+}

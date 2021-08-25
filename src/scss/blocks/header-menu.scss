@@ -1,0 +1,40 @@
+.page-menu {
+  margin-top: 10px;
+  margin-left: 114px;
+  margin-right: auto;
+}
+
+.page-menu__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.page-menu__item {
+  list-style-type: none;
+  margin-left: 24px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.page-menu__link {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.75px;
+  color: $black;
+
+  &--active {
+    color: $blue;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.4;
+  }
+}

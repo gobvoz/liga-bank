@@ -1,0 +1,16 @@
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 91px;
+  margin: 0;
+  padding-top: 27px;
+  padding-bottom: 34px;
+  z-index: 10;
+}
+
+.page-header__wrapper {
+  margin: 0;
+  display: flex;
+}
