@@ -1,9 +1,11 @@
 .page-main {
-  margin-top: 91px;
+  margin-top: 93px;
+
   @media screen and(max-width: $tablet) {
-    margin-top: 69px;
+    margin-top: 76px;
   }
+
   @media screen and(max-width: $mobile) {
-    margin-top: 48px;
+    margin-top: 53px;
   }
 }

@@ -1,0 +1,48 @@
+.slider__controls {
+  position: absolute;
+  bottom: 36px;
+  left: 48.5%;
+
+  @media screen and(max-width: $tablet) {
+    bottom: 12px;
+    left: 47.5%;
+  }
+
+  @media screen and(max-width: $mobile) {
+    bottom: 6px;
+    left: 45.5%;
+  }
+}
+
+.slider__btn {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  margin-right: 8px;
+  border-radius: 50%;
+  background-color: $slider-blue;
+  border: none;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:disabled {
+    cursor: auto;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  @media screen and(max-width: $mobile) {
+    width: 6px;
+    height: 6px;
+    margin-right: 5px;
+  }
+}
+
+.slider__btn.active {
+  background-color: $white;
+}

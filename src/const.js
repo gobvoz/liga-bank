@@ -1,7 +1,7 @@
 export const AppRoute = {
   ROOT: `/`,
   CONVERTER: `/converter`,
-  QUESTIONS: `/questions`
+  QUESTIONS: `/questions`,
 };
 
 export const MENU_TYPE = {
@@ -28,3 +28,13 @@ export const Validations = {
 export const Validators = {
   IS_EMPTY: `isEmpty`,
 };
+
+export const SLIDE_QTY = 3;
+
+export const Slides = {
+  SLIDE1: 0,
+  SLIDE2: 1,
+  SLIDE3: 2,
+};
+
+export const SWIPE_SENS = 75;
