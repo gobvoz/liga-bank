@@ -1,0 +1,55 @@
+.tabs-menu {
+  display: block;
+  width: 100%;
+  background-color: $background-white;
+
+  @media screen and(max-width: $tablet) {
+    display: none;
+  }
+}
+
+.tabs-menu__list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs-menu__item {
+  list-style-type: none;
+  width: 25%;
+}
+
+.tabs-menu__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 93px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+
+  &:disabled:hover {
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: auto;
+    opacity: 1;
+  }
+}
+
+.tabs-menu__btn.active {
+  background-color: $background-blue;
+}
+
+.tabs-menu__icon {
+  margin-right: 10px;
+}

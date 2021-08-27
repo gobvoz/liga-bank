@@ -1,0 +1,191 @@
+.tabs {
+  width: 100%;
+  min-height: 410px;
+  box-sizing: border-box;
+  margin: 0 auto;
+
+  @media screen and(max-width: $tablet) {
+    max-width: 768px;
+    min-height: 380px;
+    background-color: $background-blue;
+  }
+
+  @media screen and(max-width: $mobile) {
+    max-width: 320px;
+    min-height: 362px;
+  }
+}
+
+.tabs__wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 410px;
+  padding: 52px 135px 0 70px;
+  background-color: $background-blue;
+  box-sizing: border-box;
+
+  @media screen and(max-width: $tablet) {
+    min-height: 380px;
+    padding: 52px 0 0 0;
+  }
+
+  @media screen and(max-width: $mobile) {
+    position: relative;
+    min-height: 362px;
+    padding: 54px 0 0 0;
+  }
+}
+
+.tabs__content {
+  width: 50%;
+  padding-right: 60px;
+  box-sizing: border-box;
+
+  @media screen and(max-width: $tablet) {
+    width: 55%;
+    padding-right: 0;
+  }
+
+  @media screen and(max-width: $mobile) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-right: 15px;
+  }
+}
+
+.tabs__title {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 28px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 140%;
+
+  @media screen and(max-width: $tablet) {
+    margin-bottom: 26px;
+    font-size: 18px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    font-size: 16px;
+    margin-bottom: 22px;
+  }
+}
+
+.tabs__text {
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  padding-right: 31px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 130%;
+  color: $black;
+
+  &:before {
+    content: url('../../img/check-icon.svg');
+    position: absolute;
+    top: 5%;
+    left: -20px;
+  }
+
+  @media screen and(max-width: $tablet) {
+    font-size: 16px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    margin-left: 15px;
+    margin-bottom: 12px;
+    padding-right: 16px;
+    font-size: 14px;
+
+    &:before {
+      content: url('../../img/check-icon-mobile.svg');
+      top: 0;
+      left: -16px;
+    }
+  }
+}
+
+.tabs__offers {
+  margin-top: 35px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  color: $black;
+
+  @media screen and(max-width: $tablet) {
+    margin-top: 16px;
+    font-size: 16px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    margin-top: 11px;
+    font-size: 14px;
+  }
+}
+
+.tabs__link {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 140%;
+  color: $black;
+  text-decoration: underline;
+
+  @media screen and(max-width: $tablet) {
+    font-size: 16px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    font-size: 14px;
+  }
+}
+
+.tabs__button {
+  width: 198px;
+  margin-top: 19px;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 51px;
+  color: $white;
+  background-color: $blue;
+
+  @media screen and(max-width: $tablet) {
+    margin-top: 16px;
+    line-height: 48px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    width: 290px;
+    margin-top: 11px;
+    font-size: 14px;
+    line-height: 43px;
+  }
+}
+
+.tabs__image {
+  width: 440px;
+
+  @media screen and(max-width: $tablet) {
+    width: 289px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    position: absolute;
+    width: 87px;
+    right: -15px;
+    top: 98px;
+  }
+}

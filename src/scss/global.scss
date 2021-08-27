@@ -46,3 +46,7 @@ input[type='number']::-webkit-inner-spin-button {
   align-content: start;
   min-height: 100vh;
 }
+
+button:disabled {
+  color: inherit;
+}
