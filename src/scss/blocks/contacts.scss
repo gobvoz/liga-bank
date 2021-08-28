@@ -1,0 +1,51 @@
+.contact {
+  width: 100%;
+}
+
+.contact__title {
+  font-style: normal;
+  font-weight: 00;
+  font-size: 41px;
+  line-height: 140%;
+  color: $black;
+
+  @media screen and(max-width: $tablet) {
+    font-size: 32px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    font-size: 22px;
+  }
+}
+
+.contact__map {
+  height: 462px;
+  margin-top: 70px;
+  background-image: url('../../img/bg-map.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media screen and(max-width: $tablet) {
+    margin-top: 45px;
+    background-image: url('../../img/bg-map-tablet.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media screen and(max-width: $mobile) {
+    height: 381px;
+    margin-top: 35px;
+    background-image: url('../../img/bg-map-mobile.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.map__body {
+  width: 100%;
+  height: 462px;
+
+  @media screen and(max-width: $mobile) {
+    height: 381px;
+  }
+}
