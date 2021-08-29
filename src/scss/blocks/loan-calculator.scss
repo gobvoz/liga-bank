@@ -1,0 +1,25 @@
+.loan-calculator {
+  margin-top: 110px;
+}
+
+.loan-calculator__title {
+  font-style: normal;
+  font-weight: 00;
+  font-size: 41px;
+  line-height: 140%;
+  color: $black;
+
+  @media screen and(max-width: $tablet) {
+    font-size: 32px;
+  }
+  
+  @media screen and(max-width: $mobile) {
+    font-size: 22px;
+  }
+}
+
+.loan-calculator__wrapper {
+  display: grid;
+  grid-template-rows: auto; // repeat(3 * max-content);
+  grid-template-columns: max-content 1fr;
+}

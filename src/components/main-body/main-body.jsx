@@ -1,4 +1,4 @@
-import MainSlider from '../main-slider/main-slider';
+import MainHeader from '../main-header/main-header';
 import MainServices from '../main-services/main-services';
 import MainLoanCalculator from '../main-loan-calculator/main-loan-calculator';
 import MainContact from '../main-contact/main-contact';
@@ -6,7 +6,7 @@ import MainContact from '../main-contact/main-contact';
 const MainBody = () => {
   return (
     <main className="page-main">
-      <MainSlider />
+      <MainHeader />
       <MainServices />
       <MainLoanCalculator />
       <MainContact />

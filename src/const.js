@@ -113,3 +113,13 @@ export const PlacemarkCords = [
   [51.5355, 46.0252],
   [54.9929, 73.3719],
 ];
+
+export const LoanPurpose = {
+  MORTGAGE: `mortgage`,
+  AUTO: `auto`
+};
+
+export const PurposeValue = {
+  mortgage: `Ипотечное кредитование`,
+  auto: `Автомобильное кредитование`
+};

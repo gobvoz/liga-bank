@@ -1,0 +1,20 @@
+.main-header {
+  position: relative;
+  max-width: 1366px;
+  margin: 0 auto;
+  min-height: 400px;
+
+  @media screen and(max-width: $tablet) {
+    max-width: 768px;
+    min-height: 300px;
+  }
+  
+  @media screen and(max-width: $mobile) {
+    max-width: 320px;
+    min-height: 226px;
+  }
+}
+
+.main-header__item {
+  width: 100%;
+}
