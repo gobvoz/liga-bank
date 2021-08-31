@@ -1,4 +1,10 @@
+import { redirectToRoute } from '../../../store/actions';
+import { useDispatch } from 'react-redux';
+import { AppRoute } from '../../../const';
+
 const Tabs4 = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="services__content tabs">
       <div className="container">
@@ -14,7 +20,13 @@ const Tabs4 = () => {
             <p className="tabs__text">
               Приложение Лига-проездной позволит вам оплачивать билеты&nbsp;по всему миру
             </p>
-            <button className="tabs__button button">Узнать подробнее</button>
+            <button
+              className="tabs__button button"
+              onClick={() => {
+                dispatch(redirectToRoute(AppRoute.ONLINE));
+              }}>
+              Узнать подробнее
+            </button>
           </div>
           <div className="tabs__image">
             <picture>

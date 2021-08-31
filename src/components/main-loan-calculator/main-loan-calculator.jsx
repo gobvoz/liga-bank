@@ -6,17 +6,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import Offer from './Offer/offer';
 import Popup from '../popup/popup';
 import SubmitPopup from '../submit-popup/submit-popup';
-import { changeOfferNumber, resetCalculator } from '../../store/actions';
+import { resetCalculator } from '../../store/actions';
 
 const MainLoanCalculator = () => {
-  const { purpose, offer } = useSelector(state => state.DATA);
+  const { purpose } = useSelector(state => state.DATA);
   const [isOffer, setOffer] = useState(false);
   const [isComplete, setComplete] = useState(false);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(changeOfferNumber(offer.id));
     dispatch(resetCalculator());
   }, [isComplete]);
 

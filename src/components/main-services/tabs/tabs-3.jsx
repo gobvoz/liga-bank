@@ -1,4 +1,10 @@
+import { redirectToRoute } from '../../../store/actions';
+import { useDispatch } from 'react-redux';
+import { AppRoute } from '../../../const';
+
 const Tabs3 = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="services__content tabs">
       <div className="container">
@@ -11,7 +17,13 @@ const Tabs3 = () => {
             <p className="tabs__text">Автомобильное страхование</p>
             <p className="tabs__text">Страхование жизни и здоровья</p>
             <p className="tabs__text">Страхование недвижимости</p>
-            <button className="tabs__button button">Узнать подробнее</button>
+            <button
+              className="tabs__button button"
+              onClick={() => {
+                dispatch(redirectToRoute(AppRoute.INSURANCE));
+              }}>
+              Узнать подробнее
+            </button>
           </div>
           <div className="tabs__image">
             <picture>

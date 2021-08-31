@@ -4,6 +4,7 @@ import { MENU_TYPE, AppRoute } from '../../const';
 import { changeMenu } from '../../store/actions';
 import UserBlock from '../user-block/user-block';
 import PropTypes from 'prop-types';
+import { onMenuLinkClick } from '../../utils';
 
 const HeaderMenu = props => {
   const { menuType } = useSelector(state => state.DATA);
@@ -59,7 +60,9 @@ const HeaderMenu = props => {
           <Link
             to={AppRoute.ROOT}
             className={`page-menu__link ${servicesActiveLink}`}
-            onClick={() => {
+            data-goto=".page-main__services"
+            onClick={evt => {
+              onMenuLinkClick(evt);
               dispatch(changeMenu(MENU_TYPE.SERVICES));
             }}>
             Услуги
@@ -69,7 +72,9 @@ const HeaderMenu = props => {
           <Link
             to={AppRoute.ROOT}
             className={`page-menu__link ${loanActiveLink}`}
-            onClick={() => {
+            data-goto=".page-main__loan"
+            onClick={evt => {
+              onMenuLinkClick(evt);
               dispatch(changeMenu(MENU_TYPE.LOAN));
             }}>
             Рассчитать кредит
@@ -89,14 +94,16 @@ const HeaderMenu = props => {
           <Link
             to={AppRoute.ROOT}
             className={`page-menu__link ${contactActiveLink}`}
-            onClick={() => {
+            data-goto=".page-main__contact"
+            onClick={evt => {
+              onMenuLinkClick(evt);
               dispatch(changeMenu(MENU_TYPE.CONTACT));
             }}>
             Контакты
           </Link>
         </li>
         <li className="page-menu__item user-item">
-          <UserBlock isMobile={true} isMenuOpen={isActive} setActive={setActive} />
+          <UserBlock isMobile={true} />
         </li>
       </ul>
     </nav>

@@ -2,6 +2,9 @@ export const AppRoute = {
   ROOT: `/`,
   CONVERTER: `/converter`,
   QUESTIONS: `/questions`,
+  DEPOSIT: `/deposit`,
+  INSURANCE: `/insurance`,
+  ONLINE: `/online`,
 };
 
 export const MENU_TYPE = {
@@ -22,11 +25,13 @@ export const KeyName = {
 };
 
 export const Validations = {
-  IS_EMPTY: { isEmpty: true },
+  IS_EMPTY: {isEmpty: true},
+  IS_EMAIL: {isEmpty: true, isEmail: true}
 };
 
 export const Validators = {
   IS_EMPTY: `isEmpty`,
+  IS_EMAIL: `isEmail`
 };
 
 export const SWIPE_SENS = 75;

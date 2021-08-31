@@ -1,4 +1,10 @@
+import { redirectToRoute } from '../../../store/actions';
+import { useDispatch } from 'react-redux';
+import { AppRoute } from '../../../const';
+
 const Tabs1 = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="services__content tabs">
       <div className="container">
@@ -13,7 +19,13 @@ const Tabs1 = () => {
             <p className="tabs__text">
               Возможность ежемесячной капитализации или вывод процентов на банковскую карту
             </p>
-            <button className="tabs__button button">Узнать подробнее</button>
+            <button
+              className="tabs__button button"
+              onClick={() => {
+                dispatch(redirectToRoute(AppRoute.DEPOSIT));
+              }}>
+              Узнать подробнее
+            </button>
           </div>
           <div className="tabs__image">
             <picture>

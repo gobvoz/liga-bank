@@ -35,7 +35,7 @@ const Slider = props => {
 
   return (
     <div
-      className={name}
+      className={`${name} slider`}
       key={isActive}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}

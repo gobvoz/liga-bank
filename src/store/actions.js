@@ -13,6 +13,7 @@ export const ActionType = {
   SET_NEW_OFFER: `data/setNewOffer`,
   CHANGE_OFFER_NUMBER: `data/changeOfferNumber`,
   RESET_CALCULATOR: `data/resetCalculator`,
+  REDIRECT_TO_ROUTE: `data/redirectToRoute`,
 };
 
 export const requireAuthorization = createAction(ActionType.REQUIRED_AUTHORIZATION, status => {
@@ -88,3 +89,9 @@ export const changeOfferNumber = createAction(ActionType.CHANGE_OFFER_NUMBER, ne
 });
 
 export const resetCalculator = createAction(ActionType.RESET_CALCULATOR);
+
+export const redirectToRoute = createAction(ActionType.REDIRECT_TO_ROUTE, url => {
+  return {
+    payload: url,
+  };
+});

@@ -2,7 +2,8 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useInput } from '../../../hooks/hooks';
 import { Validations } from '../../../const';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeOfferNumber } from '../../../store/actions';
 
 const Step3 = props => {
   const { setActive, openPopup } = props;
@@ -10,7 +11,9 @@ const Step3 = props => {
   const [isError, setError] = useState(false);
   const name = useInput(``, Validations.IS_EMPTY);
   const phone = useInput(``, Validations.IS_EMPTY);
-  const mail = useInput(``, Validations.IS_EMPTY);
+  const mail = useInput(``, Validations.IS_EMAIL);
+
+  const dispatch = useDispatch();
 
   const resetForm = () => {
     name.setValue(``);
@@ -20,13 +23,47 @@ const Step3 = props => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    if (name.isEmpty || phone.isEmpty || mail.isEmpty) {
+    if (name.isEmpty || phone.isEmpty || mail.isEmpty || mail.emailError) {
       setError(true);
     } else {
+      dispatch(changeOfferNumber(offer.id));
       setError(false);
       resetForm();
       setActive(false);
       openPopup(true);
+    }
+  };
+
+  const onInputPhone = evt => {
+    if (
+      !(
+        evt.key === `ArrowLeft` ||
+        evt.key === `ArrowRight` ||
+        evt.key === `Backspace` ||
+        evt.key === `Tab`
+      )
+    ) {
+      evt.preventDefault();
+    }
+
+    const mask = `+7 (111) 111-11-11`;
+
+    if (/[0-9\+\ \-\(\)]/.test(evt.key)) {
+      let currentString = phone.value;
+      const currentLength = currentString.length;
+      if (/[0-9]/.test(evt.key)) {
+        if (mask[currentLength] === `1`) {
+          phone.setValue(currentString + evt.key);
+        } else {
+          for (let i = currentLength; i < mask.length; i++) {
+            if (mask[i] === `1`) {
+              phone.setValue(currentString + evt.key);
+              break;
+            }
+            currentString += mask[i];
+          }
+        }
+      }
     }
   };
 
@@ -90,6 +127,7 @@ const Step3 = props => {
             placeholder="Телефон"
             required={true}
             value={phone.value}
+            onKeyDown={evt => onInputPhone(evt)}
             onChange={evt => phone.onChange(evt)}
             onBlur={evt => phone.onBlur(evt)}
           />
@@ -115,6 +153,9 @@ const Step3 = props => {
             <span className={`step3__errorText ${isError && `error`}`}>
               Пожалуйста, заполните поле
             </span>
+          )}
+          {mail.emailError && !mail.isEmpty && (
+            <span className={`step3__errorText ${isError && `error`}`}>Некорректный e-mail</span>
           )}
         </label>
         <button className="step3__submit button" type="submit">
