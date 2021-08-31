@@ -45,18 +45,18 @@
 }
 
 .slide--second {
-  background-image: url(../../img/bg-slider2.png);
+  background-image: url('../../img/bg-slider2.png');
   background-repeat: no-repeat;
   background-size: cover;
 
   @media screen and(max-width: $tablet) {
-    background-image: url(../../img/bg-slider2-tablet.png);
+    background-image: url('../../img/bg-slider2-tablet.png');
     background-repeat: no-repeat;
     background-size: cover;
   }
 
   @media screen and(max-width: $mobile) {
-    background-image: url(../../img/bg-slider2-mobile.png);
+    background-image: url('../../img/bg-slider2-mobile.png');
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -67,7 +67,7 @@
 }
 
 .slide--third {
-  background-image: url(../../img/bg-slider3.png);
+  background-image: url('../../img/bg-slider3.png');
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -78,13 +78,13 @@
   }
 
   @media screen and(max-width: $tablet) {
-    background-image: url(../../img/bg-slider3-tablet.png);
+    background-image: url('../../img/bg-slider3-tablet.png');
     background-repeat: no-repeat;
     background-size: cover;
   }
 
   @media screen and(max-width: $mobile) {
-    background-image: url(../../img/bg-slider3-mobile.png);
+    background-image: url('../../img/bg-slider3-mobile.png');
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -148,10 +148,14 @@
 }
 
 .slide__button {
+  display: flex;
+  justify-content: center;
   width: 234px;
   margin-top: 34px;
   font-size: 18px;
   line-height: 53px;
+  background-color: $white;
+  color: $black;
 
   @media screen and(max-width: $tablet) {
     width: 206px;

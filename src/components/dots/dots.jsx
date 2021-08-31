@@ -25,7 +25,7 @@ const Dots = props => {
 };
 
 Dots.propTypes = {
-  isActive: PropTypes.bool.isRequired,
+  isActive: PropTypes.number.isRequired,
   setActive: PropTypes.func.isRequired,
   array: PropTypes.array.isRequired,
   name: PropTypes.string.isRequired,

@@ -1,6 +1,19 @@
+.logo {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  @media screen and(max-width: $mobile) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+}
+
 .logo__wrapper {
   display: flex;
   flex-grow: 1;
+
   @media screen and(max-width: $mobile) {
     align-items: center;
   }
@@ -8,6 +21,7 @@
 
 .logo__image {
   align-self: flex-start;
+
   @media screen and(max-width: $mobile) {
     align-self: center;
   }
@@ -18,18 +32,19 @@
   margin: 0;
   margin-left: 10px;
   margin-top: 5px;
-
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
   line-height: 23.46px;
   color: $black;
+
   @media screen and(max-width: $tablet) {
     margin-left: 3px;
     margin-top: 7px;
     font-size: 18px;
     line-height: 21px;
   }
+
   @media screen and(max-width: $mobile) {
     margin-left: 10px;
     margin-top: 2px;
@@ -42,6 +57,7 @@
   &:hover {
     opacity: 0.7;
   }
+
   &:active {
     opacity: 0.4;
   }

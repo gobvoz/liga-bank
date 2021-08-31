@@ -1,6 +1,7 @@
-import { redirectToRoute } from '../../../store/actions';
-import { useDispatch } from 'react-redux';
-import { AppRoute } from '../../../const';
+import React from 'react';
+import {redirectToRoute} from '../../../store/actions';
+import {useDispatch} from 'react-redux';
+import {AppRoute} from '../../../const';
 
 const Tabs3 = () => {
   const dispatch = useDispatch();
@@ -10,10 +11,7 @@ const Tabs3 = () => {
       <div className="container">
         <div className="tabs__wrapper">
           <div className="tabs__content">
-            <h2 className="tabs__title">
-              Лига Страхование — застрахуем
-              <br /> все что захотите
-            </h2>
+            <h2 className="tabs__title">Лига Страхование — застрахуем<br/> все что захотите</h2>
             <p className="tabs__text">Автомобильное страхование</p>
             <p className="tabs__text">Страхование жизни и здоровья</p>
             <p className="tabs__text">Страхование недвижимости</p>
@@ -21,18 +19,13 @@ const Tabs3 = () => {
               className="tabs__button button"
               onClick={() => {
                 dispatch(redirectToRoute(AppRoute.INSURANCE));
-              }}>
-              Узнать подробнее
-            </button>
+              }}
+            >Узнать подробнее</button>
           </div>
           <div className="tabs__image">
             <picture>
-              <source media="(min-width: 1024px)" type="image/png" srcSet="./img/lock-tab3.png" />
-              <source
-                media="(min-width: 768px)"
-                type="image/png"
-                srcSet="./img/lock-tab3-tablet.png"
-              />
+              <source media="(min-width: 1024px)" type="image/png" srcSet="./img/lock-tab3.png"/>
+              <source media="(min-width: 768px)" type="image/png" srcSet="./img/lock-tab3-tablet.png"/>
               <img src="./img/lock-tab3-mobile.png" alt="Картинка копилки" />
             </picture>
           </div>

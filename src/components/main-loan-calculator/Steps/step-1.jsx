@@ -1,12 +1,6 @@
-import { useRef, useState } from 'react';
-import {
-  FIRST_PAYMENT_RATE,
-  LOAN_TERM,
-  LoanPurpose,
-  PRICES_DATA,
-  PurposeValue,
-} from '../../../const';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { FirstPaymentRate, LoanTerm, LoanPurpose, PriceData, PurposeValue } from '../../../const';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   changePurpose,
   changePrice,
@@ -15,8 +9,8 @@ import {
 } from '../../../store/actions';
 
 const Step1 = () => {
+  const { purpose } = useSelector(state => state.DATA);
   const [isClose, setClose] = useState(false);
-  const purpose = useRef();
 
   const dispatch = useDispatch();
 
@@ -27,12 +21,10 @@ const Step1 = () => {
   const choiceClickHandler = evt => {
     evt.preventDefault();
     const choice = evt.target.dataset.choice;
-    const price =
-      choice === LoanPurpose.MORTGAGE ? PRICES_DATA.START_MORTGAGE : PRICES_DATA.START_AUTO;
+    const price = choice === LoanPurpose.MORTGAGE ? PriceData.START_MORTGAGE : PriceData.START_AUTO;
     const firstPayment =
-      choice === LoanPurpose.MORTGAGE ? FIRST_PAYMENT_RATE.MORTGAGE : FIRST_PAYMENT_RATE.AUTO;
-    const loanTerm = choice === LoanPurpose.MORTGAGE ? LOAN_TERM.MIN_MORTGAGE : LOAN_TERM.MIN_AUTO;
-    purpose.current.value = PurposeValue[choice];
+      choice === LoanPurpose.MORTGAGE ? FirstPaymentRate.MORTGAGE : FirstPaymentRate.AUTO;
+    const loanTerm = choice === LoanPurpose.MORTGAGE ? LoanTerm.MIN_MORTGAGE : LoanTerm.MIN_AUTO;
     dispatch(changePurpose(choice));
     dispatch(changePrice(price));
     dispatch(changeFirstPayment(firstPayment));
@@ -43,17 +35,19 @@ const Step1 = () => {
   return (
     <div className="loan-calculator__step1 step step1">
       <h3 className="step__title">Шаг 1. Цель кредита</h3>
-      <label className="step__label">
-        <input
-          ref={purpose}
-          aria-label="Цель кредита"
-          className="step__field"
-          type="text"
-          name="purpose"
-          placeholder="Выберите цель кредита"
-          onClick={openPurposeHandler}
-          readOnly={true}
-        />
+      <div className="step__label-wrapper">
+        <label className="step__label">
+          <input
+            value={purpose ? PurposeValue[purpose] : ``}
+            aria-label="Цель кредита"
+            className="step__field"
+            type="text"
+            name="purpose"
+            placeholder="Выберите цель кредита"
+            onClick={openPurposeHandler}
+            readOnly={true}
+          />
+        </label>
         <button
           className={`step__button button ${isClose && `button--close`}`}
           aria-label={!isClose ? `Открыть` : `Закрыть`}
@@ -62,27 +56,27 @@ const Step1 = () => {
             <path d="M1 1l8 8 8-8" stroke="#1F1E25" strokeWidth="2" />
           </svg>
         </button>
-        <ul className={`step1__list ${isClose && `active`}`}>
-          <li className="step1__choice">
-            <a
-              href="#!"
-              className="step1__link"
-              data-choice={LoanPurpose.MORTGAGE}
-              onClick={choiceClickHandler}>
-              {PurposeValue[LoanPurpose.MORTGAGE]}
-            </a>
-          </li>
-          <li className="step1__choice">
-            <a
-              href="#!"
-              className="step1__link"
-              data-choice={LoanPurpose.AUTO}
-              onClick={choiceClickHandler}>
-              {PurposeValue[LoanPurpose.AUTO]}
-            </a>
-          </li>
-        </ul>
-      </label>
+      </div>
+      <ul className={`step1__list ${isClose && `active`}`}>
+        <li className="step1__choice">
+          <a
+            href="#!"
+            className="step1__link"
+            data-choice={LoanPurpose.MORTGAGE}
+            onClick={choiceClickHandler}>
+            {PurposeValue[LoanPurpose.MORTGAGE]}
+          </a>
+        </li>
+        <li className="step1__choice">
+          <a
+            href="#!"
+            className="step1__link"
+            data-choice={LoanPurpose.AUTO}
+            onClick={choiceClickHandler}>
+            {PurposeValue[LoanPurpose.AUTO]}
+          </a>
+        </li>
+      </ul>
     </div>
   );
 };

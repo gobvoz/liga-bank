@@ -1,9 +1,7 @@
 .services {
   position: relative;
-  width: 100%;
   min-height: 410px;
   margin-top: 60px;
-  box-sizing: border-box;
 
   .dots__btn.active {
     background-color: $dots-gray;
@@ -30,7 +28,6 @@
 .services__item {
   width: 100%;
   min-height: 410px;
-  box-sizing: border-box;
 
   @media screen and(max-width: $tablet) {
     min-height: 380px;

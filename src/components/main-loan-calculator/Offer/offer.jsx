@@ -4,16 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setNewOffer } from '../../../store/actions';
 import {
   AUTO_PRICE_RATE,
-  FIRST_PAYMENT_RATE,
+  FirstPaymentRate,
   LoanPurpose,
   MIN_FIRST_PAYMENT_RATE,
   MOTHER,
   MONTHS,
-  LOAN_AMOUNT_MIN,
+  MinLoanAmount,
   SALARY_RATE,
 } from '../../../const';
-import Popup from '../../popup/popup';
-import ErrorPopup from '../../error-popup/error-popup';
+import ErrorMessage from '../../error-message/error-message';
 
 const Offer = props => {
   const { setActive } = props;
@@ -32,7 +31,7 @@ const Offer = props => {
   const dispatch = useDispatch();
 
   const getLoanAmount = () => {
-    let amount = price - (price * firstPayment) / FIRST_PAYMENT_RATE.MAX;
+    let amount = price - (price * firstPayment) / FirstPaymentRate.MAX;
     if (isMother) {
       amount = amount - MOTHER;
     }
@@ -43,9 +42,8 @@ const Offer = props => {
     if (purpose === LoanPurpose.MORTGAGE) {
       if (firstPayment < MIN_FIRST_PAYMENT_RATE) {
         return 9.4;
-      } else {
-        return 8.5;
       }
+      return 8.5;
     } else {
       if (isInsuranceAuto && isInsuranceLive) {
         return 3.5;
@@ -60,7 +58,7 @@ const Offer = props => {
 
   const getMonthPayment = () => {
     const amount = getLoanAmount();
-    const monthRate = getLoanRate() / FIRST_PAYMENT_RATE.MAX / MONTHS;
+    const monthRate = getLoanRate() / FirstPaymentRate.MAX / MONTHS;
     const loanPeriod = loanTerm * MONTHS;
     return parseInt(
       amount * (monthRate + monthRate / (Math.pow(1 + monthRate, loanPeriod) - 1)),
@@ -69,84 +67,65 @@ const Offer = props => {
   };
 
   const getSalary = () => {
-    return parseInt((getMonthPayment() * FIRST_PAYMENT_RATE.MAX) / SALARY_RATE, 10);
+    return parseInt((getMonthPayment() * FirstPaymentRate.MAX) / SALARY_RATE, 10);
   };
-
-  const loanAmount = getLoanAmount();
 
   useEffect(() => {
     if (purpose === LoanPurpose.MORTGAGE) {
-      if (loanAmount < LOAN_AMOUNT_MIN.MORTGAGE) {
+      if (getLoanAmount() < MinLoanAmount.MORTGAGE) {
         setError(true);
       } else {
         setError(false);
       }
+    } else if (getLoanAmount() < MinLoanAmount.AUTO) {
+      setError(true);
     } else {
-      if (loanAmount < LOAN_AMOUNT_MIN.AUTO) {
-        setError(true);
-      } else {
-        setError(false);
-      }
+      setError(false);
     }
-  }, [loanAmount]);
+  }, [getLoanAmount()]);
 
   const onOfferSendHandler = () => {
     const offer = {
       id: offerNumber + 1,
       loanPurpose: purpose === LoanPurpose.MORTGAGE ? `Ипотека` : `Автокредит`,
       loanPrice: price,
-      loanFirstPayment: (price * firstPayment) / FIRST_PAYMENT_RATE.MAX,
+      loanFirstPayment: (price * firstPayment) / FirstPaymentRate.MAX,
       loanTime: loanTerm,
     };
-    if (purpose === LoanPurpose.MORTGAGE) {
-      if (loanAmount < LOAN_AMOUNT_MIN.MORTGAGE) {
-        setError(true);
-      } else {
-        setError(false);
-        dispatch(setNewOffer(offer));
-        setActive(true);
-      }
-    } else {
-      if (loanAmount < LOAN_AMOUNT_MIN.AUTO) {
-        setError(true);
-      } else {
-        setError(false);
-        dispatch(setNewOffer(offer));
-        setActive(true);
-      }
-    }
+    dispatch(setNewOffer(offer));
+    setActive(true);
   };
 
   return (
     <div className="loan-calculator__offer offer">
-      <h3 className="offer__title">Наше предложение</h3>
-      <div className="offer__wrapper">
-        <div className="offer__item loan-amount">
-          <p className="offer__data">{`${loanAmount.toLocaleString(`ru-RU`)}`}</p>
-          <p className="offer__comment">
-            {purpose === LoanPurpose.MORTGAGE ? `Сумма ипотеки` : `Сумма автокредита`}
-          </p>
-        </div>
-        <div className="offer__item loan-rate">
-          <p className="offer__data">{`${getLoanRate().toLocaleString(`ru-RU`)}%`}</p>
-          <p className="offer__comment">Процентная ставка</p>
-        </div>
-        <div className="offer__item loan-payment">
-          <p className="offer__data">{`${getMonthPayment().toLocaleString(`ru-RU`)} рублей`}</p>
-          <p className="offer__comment">Ежемесячный платеж</p>
-        </div>
-        <div className="offer__item loan-salary">
-          <p className="offer__data">{`${getSalary().toLocaleString(`ru-RU`)} рублей`}</p>
-          <p className="offer__comment">Необходимый доход</p>
-        </div>
-      </div>
-      <button className="offer__button button" onClick={onOfferSendHandler}>
-        Оформить заявку
-      </button>
-      {isError && (
-        <Popup name={`offer`} active={isError} setActive={setError}>
-          <ErrorPopup />
-        </Popup>
+      {isError && <ErrorMessage />}
+      {!isError && (
+        <>
+          <h3 className="offer__title">Наше предложение</h3>
+          <div className="offer__wrapper">
+            <div className="offer__item loan-amount">
+              <p className="offer__data">{`${getLoanAmount().toLocaleString(`ru-RU`)}`}</p>
+              <p className="offer__comment">
+                {purpose === LoanPurpose.MORTGAGE ? `Сумма ипотеки` : `Сумма автокредита`}
+              </p>
+            </div>
+            <div className="offer__item loan-rate">
+              <p className="offer__data">{`${getLoanRate().toLocaleString(`ru-RU`)}%`}</p>
+              <p className="offer__comment">Процентная ставка</p>
+            </div>
+            <div className="offer__item loan-payment">
+              <p className="offer__data">{`${getMonthPayment().toLocaleString(`ru-RU`)} рублей`}</p>
+              <p className="offer__comment">Ежемесячный платеж</p>
+            </div>
+            <div className="offer__item loan-salary">
+              <p className="offer__data">{`${getSalary().toLocaleString(`ru-RU`)} рублей`}</p>
+              <p className="offer__comment">Необходимый доход</p>
+            </div>
+          </div>
+          <button className="offer__button button" type="button" onClick={onOfferSendHandler}>
+            Оформить заявку
+          </button>
+        </>
       )}
     </div>
   );

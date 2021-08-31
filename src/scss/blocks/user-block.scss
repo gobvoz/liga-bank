@@ -1,7 +1,11 @@
 .user-block {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  align-self: start;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   margin-top: 6px;
   cursor: pointer;
   &:hover {

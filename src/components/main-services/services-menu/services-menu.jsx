@@ -4,21 +4,18 @@ import PropTypes from 'prop-types';
 const ServicesMenu = props => {
   const { isActive, setActive } = props;
 
-  const onMenuClickHandler = evt => {
-    const currentSlide = parseInt(evt.target.dataset.number, 10);
-    setActive(currentSlide);
+  const onMenuClickHandler = index => {
+    setActive(index);
   };
   return (
     <div className="services__menu tabs-menu">
       <div className="container">
         <ul className="tabs-menu__list">
           {TABS_MENU.map((item, index) => (
-            <li key={index} className="tabs-menu__item">
+            <li key={index} className="tabs-menu__item" onClick={() => onMenuClickHandler(index)}>
               <button
                 className={`tabs-menu__btn ${isActive === index && `active`}`}
                 type="button"
-                data-number={`${index}`}
-                onClick={onMenuClickHandler}
                 disabled={isActive === index}>
                 {item.icon}
                 {item.name}
@@ -32,7 +29,7 @@ const ServicesMenu = props => {
 };
 
 ServicesMenu.propTypes = {
-  isActive: PropTypes.bool.isRequired,
+  isActive: PropTypes.number.isRequired,
   setActive: PropTypes.func.isRequired,
 };
 

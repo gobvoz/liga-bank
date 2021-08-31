@@ -44,14 +44,13 @@ const UserBlock = props => {
           type="button"
           aria-label="Закрыть"></button>
       );
-    } else {
-      return (
-        <picture>
-          <source media="(min-width: 768px)" type="image/svg+xml" srcSet="./img/login-icon.svg" />
-          <img src="./img/login-icon-mobile.svg" alt="Иконка входа" className="user-block__icon" />
-        </picture>
-      );
     }
+    return (
+      <picture>
+        <source media="(min-width: 768px)" type="image/svg+xml" srcSet="./img/login-icon.svg" />
+        <img src="./img/login-icon-mobile.svg" alt="Иконка входа" className="user-block__icon" />
+      </picture>
+    );
   };
 
   return (

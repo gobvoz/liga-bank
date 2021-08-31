@@ -1,11 +1,20 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { AppRoute, MENU_TYPE } from '../../const';
-import { changeMenu } from '../../store/actions';
-import { useDispatch } from 'react-redux';
+import { AppRoute, MenuType } from '../../const';
+import { changeMenu, redirectToRoute } from '../../store/actions';
+import { useDispatch, useSelector } from 'react-redux';
 import { onMenuLinkClick } from '../../utils';
 
 const Footer = () => {
+  const { menuType } = useSelector(state => state.DATA);
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (menuType !== MenuType.QUESTIONS) {
+      onMenuLinkClick(menuType);
+    }
+  }, [menuType]);
 
   return (
     <footer className="page-footer">
@@ -13,12 +22,7 @@ const Footer = () => {
         <div className="page-footer__wrapper">
           <div className="page-footer__left">
             <div className="page-footer__logo logo">
-              <Link
-                to="/"
-                className="logo__link"
-                onClick={() => {
-                  dispatch(changeMenu(MENU_TYPE.SERVICES));
-                }}>
+              <Link to={AppRoute.ROOT} className="logo__link">
                 <div className="logo__wrapper">
                   <picture>
                     <source
@@ -35,31 +39,40 @@ const Footer = () => {
             <div className="page-footer__menu">
               <ul className="page-footer__list">
                 <li className="page-footer__item">
-                  <Link
-                    to={AppRoute.ROOT}
+                  <a
+                    href="#!"
                     className="page-footer__link"
-                    data-goto=".page-main__services"
-                    onClick={evt => onMenuLinkClick(evt)}>
+                    onClick={evt => {
+                      evt.preventDefault();
+                      dispatch(redirectToRoute(AppRoute.ROOT));
+                      dispatch(changeMenu(MenuType.SERVICES));
+                    }}>
                     Услуги
-                  </Link>
+                  </a>
                 </li>
                 <li className="page-footer__item">
-                  <Link
-                    to={AppRoute.ROOT}
+                  <a
+                    href="#!"
                     className="page-footer__link"
-                    data-goto=".page-main__loan"
-                    onClick={evt => onMenuLinkClick(evt)}>
+                    onClick={evt => {
+                      evt.preventDefault();
+                      dispatch(redirectToRoute(AppRoute.ROOT));
+                      dispatch(changeMenu(MenuType.LOAN));
+                    }}>
                     Рассчитать&nbsp;кредит
-                  </Link>
+                  </a>
                 </li>
                 <li className="page-footer__item">
-                  <Link
-                    to={AppRoute.ROOT}
+                  <a
+                    href="#!"
                     className="page-footer__link"
-                    data-goto=".page-main__contact"
-                    onClick={evt => onMenuLinkClick(evt)}>
+                    onClick={evt => {
+                      evt.preventDefault();
+                      dispatch(redirectToRoute(AppRoute.ROOT));
+                      dispatch(changeMenu(MenuType.CONTACT));
+                    }}>
                     Контакты
-                  </Link>
+                  </a>
                 </li>
                 <li className="page-footer__item">
                   <Link to={AppRoute.QUESTIONS} className="page-footer__link">
@@ -91,7 +104,7 @@ const Footer = () => {
             </div>
             <div className="page-footer__phone phone">
               <p className="phone__number">
-                <a href="tel:8 800 111 22 33" className="phone__link">
+                <a href="tel:88001112233" className="phone__link">
                   8 800 111 22 33
                 </a>
               </p>

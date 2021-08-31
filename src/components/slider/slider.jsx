@@ -17,19 +17,10 @@ const Slider = props => {
 
   const handleTouchEnd = () => {
     if (touchStart - touchEnd > SWIPE_SENS) {
-      if (isActive === slidesLength - 1) {
-        setActive(0);
-      } else {
-        setActive(isActive + 1);
-      }
+      setActive(isActive === slidesLength - 1 ? 0 : (isActive + 1) % slidesLength);
     }
-
     if (touchStart - touchEnd < -SWIPE_SENS) {
-      if (isActive === 0) {
-        setActive(slidesLength - 1);
-      } else {
-        setActive(isActive - 1);
-      }
+      setActive(isActive === 0 ? slidesLength - 1 : (isActive - 1) % slidesLength);
     }
   };
 
@@ -46,7 +37,7 @@ const Slider = props => {
 };
 
 Slider.propTypes = {
-  isActive: PropTypes.bool.isRequired,
+  isActive: PropTypes.number.isRequired,
   setActive: PropTypes.func.isRequired,
   slidesLength: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,

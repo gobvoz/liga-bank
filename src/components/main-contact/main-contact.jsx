@@ -1,10 +1,10 @@
 import { YMaps, Map, Placemark, ZoomControl, GeolocationControl } from 'react-yandex-maps';
-import { PlaceMarkCords } from '../../const';
+import { PLACE_MARK_CORDS } from '../../const';
 
 const MainContact = () => {
   return (
     <section className="page-main__contact contact">
-      <div className="container">
+      <div id="contact" className="container">
         <h2 className="contact__title">Отделения Лига Банка</h2>
         <YMaps>
           <div className="contact__map map">
@@ -25,7 +25,7 @@ const MainContact = () => {
                   position: { right: `10px`, bottom: `80px` },
                 }}
               />
-              {PlaceMarkCords.map((mark, index) => (
+              {PLACE_MARK_CORDS.map((mark, index) => (
                 <Placemark
                   key={index}
                   geometry={mark}

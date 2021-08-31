@@ -7,10 +7,12 @@
   padding: 0 56px;
   background-color: $background-blue;
   border: 4px solid $blue;
+
   @media screen and(max-width: $tablet) {
     width: 678px;
     padding: 0 84px;
   }
+
   @media screen and(max-width: $mobile) {
     width: 290px;
     height: 455px;
@@ -23,6 +25,7 @@
   justify-content: space-between;
   width: 100%;
   margin-top: 50px;
+
   @media screen and(max-width: $mobile) {
     margin-top: 38px;
   }
@@ -33,6 +36,7 @@
   margin-bottom: 8px;
   position: relative;
   background-color: $background-blue;
+
   &:before {
     content: '';
     position: absolute;
@@ -43,6 +47,7 @@
     border: 1px solid $black;
     transform: translate(0px, -50%) rotate(45deg);
   }
+
   &:after {
     content: '';
     position: absolute;
@@ -53,6 +58,7 @@
     border: 1px solid $black;
     transform: translate(0px, 50%) rotate(-45deg);
   }
+
   @media screen and(max-width: $mobile) {
     &:before,
     &:after {
@@ -67,10 +73,11 @@
   align-items: center;
   width: 100%;
   margin-top: 40px;
-  box-sizing: border-box;
+
   @media screen and(max-width: $tablet) {
     margin-top: 37px;
   }
+
   @media screen and(max-width: $mobile) {
     margin-top: 27px;
   }
@@ -80,15 +87,16 @@
   display: flex;
   flex-direction: column;
   position: relative;
-
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
   color: $label-black;
+
   &:first-child {
     margin-bottom: 29px;
   }
+
   @media screen and(max-width: $mobile) {
     &:first-child {
       margin-bottom: 24px;
@@ -100,7 +108,6 @@
   width: 424px;
   height: 60px;
   padding-left: 25px;
-
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -108,17 +115,20 @@
   color: $black;
   background: $background-blue;
   border: 1px solid $black;
-  box-sizing: border-box;
   border-radius: 4px;
+
   &:invalid {
     border: 1px solid $black;
   }
+
   &:focus ~ .login-form__required {
     display: none;
   }
+
   @media screen and(max-width: $tablet) {
     width: 502px;
   }
+
   @media screen and(max-width: $mobile) {
     width: 250px;
   }
@@ -133,7 +143,6 @@
   position: absolute;
   top: 0;
   left: 50%;
-
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -145,6 +154,10 @@
   display: block;
 }
 
+.login-form__button-wrapper {
+  position: relative;
+}
+
 .login-form__pass-btn {
   position: absolute;
   top: 46px;
@@ -152,6 +165,7 @@
   width: 22px;
   height: 12px;
   background: $white;
+
   @media screen and(max-width: $tablet) {
     right: 29px;
   }
@@ -160,12 +174,12 @@
 .login-form__link {
   align-self: flex-end;
   margin-top: 7px;
-
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
   line-height: 140%;
   color: $footer-gray;
+
   @media screen and(max-width: $mobile) {
     align-self: center;
     order: 2;
@@ -183,9 +197,11 @@
   text-align: center;
   background: $blue;
   cursor: pointer;
+
   @media screen and(max-width: $tablet) {
     width: 502px;
   }
+
   @media screen and(max-width: $mobile) {
     width: 250px;
     margin-top: 33px;

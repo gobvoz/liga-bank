@@ -8,12 +8,14 @@ const Slide3 = () => {
           <div className="slide__info">
             <h1 className="slide__title">Лига Банк</h1>
             <p className="slide__text">Всегда рядом</p>
-            <button
+            <a
+              href="#contact-goto"
               className="slide__button button"
-              data-goto=".page-main__contact"
-              onClick={evt => onMenuLinkClick(evt)}>
+              onClick={evt => {
+                onMenuLinkClick(evt);
+              }}>
               Найти отделение
-            </button>
+            </a>
           </div>
         </div>
       </div>

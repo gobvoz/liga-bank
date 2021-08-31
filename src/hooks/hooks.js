@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Validators } from '../const';
+import { Validator } from '../const';
 
 const useValidation = (value, validations) => {
   const [isEmpty, setEmpty] = useState(true);
@@ -9,14 +9,14 @@ const useValidation = (value, validations) => {
     for (const validation in validations) {
       if (validations.hasOwnProperty(validation)) {
         switch (validation) {
-          case Validators.IS_EMPTY:
+          case Validator.IS_EMPTY:
             if (value) {
               setEmpty(false);
             } else {
               setEmpty(true);
             }
             break;
-          case Validators.IS_EMAIL:
+          case Validator.IS_EMAIL:
             const re =
               /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             if (re.test(String(value).toLowerCase())) {

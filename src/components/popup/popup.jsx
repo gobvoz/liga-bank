@@ -7,11 +7,8 @@ const Popup = props => {
   const { name, active, setActive, children } = props;
 
   const onKeydown = evt => {
-    switch (evt.key) {
-      case KeyName.ESC:
-        popupCloseHandler(setActive);
-        break;
-      default:
+    if (evt.key === KeyName.ESC) {
+      popupCloseHandler(setActive);
     }
   };
 
@@ -24,6 +21,7 @@ const Popup = props => {
     <section
       className={`${name}__popup popup ${active ? `active` : ``}`}
       onClick={() => popupCloseHandler(setActive)}>
+      <h3 className="popup-title visually-hidden">Модальное окно</h3>
       {children}
     </section>
   );

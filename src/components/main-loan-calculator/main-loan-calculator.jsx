@@ -12,6 +12,7 @@ const MainLoanCalculator = () => {
   const { purpose } = useSelector(state => state.DATA);
   const [isOffer, setOffer] = useState(false);
   const [isComplete, setComplete] = useState(false);
+  const [isPriceError, setPriceError] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -20,13 +21,13 @@ const MainLoanCalculator = () => {
   }, [isComplete]);
 
   return (
-    <section className="page-main__loan loan-calculator">
+    <section id="loan" className="page-main__loan loan-calculator">
       <div className="container">
         <h2 className="loan-calculator__title">Кредитный калькулятор</h2>
         <div className="loan-calculator__wrapper">
           <Step1 />
-          {purpose && <Step2 />}
-          {purpose && <Offer setActive={setOffer} />}
+          {purpose && <Step2 isPriceError={isPriceError} setPriceError={setPriceError} />}
+          {purpose && !isPriceError && <Offer setActive={setOffer} />}
           {isOffer && <Step3 setActive={setOffer} openPopup={setComplete} />}
           {isComplete && (
             <Popup name={`step3`} active={isComplete} setActive={setComplete}>

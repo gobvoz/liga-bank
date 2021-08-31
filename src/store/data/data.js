@@ -1,9 +1,8 @@
 import * as actions from '../actions';
 import { createReducer } from '@reduxjs/toolkit';
-import { MENU_TYPE } from '../../const';
 
 const initialState = {
-  menuType: MENU_TYPE.SERVICES,
+  menuType: ``,
   purpose: ``,
   price: ``,
   firstPayment: ``,
@@ -25,6 +24,9 @@ const DATA = createReducer(initialState, builder => {
     return {
       ...state,
       purpose: action.payload,
+      isMother: false,
+      isInsuranceAuto: false,
+      isInsuranceLive: false,
     };
   });
   builder.addCase(actions.changePrice, (state, action) => {

@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Validations, AuthorizationStatus } from '../../const';
+import { Validation, AuthorizationStatus } from '../../const';
 import { useInput } from '../../hooks/hooks';
 import { useDispatch } from 'react-redux';
 import { requireAuthorization } from '../../store/actions';
@@ -11,8 +10,8 @@ const LoginForm = props => {
   const { setActive } = props;
   const [isError, setError] = useState(false);
   const [isView, setView] = useState(false);
-  const name = useInput(``, Validations.IS_EMPTY);
-  const password = useInput(``, Validations.IS_EMPTY);
+  const name = useInput(localStorage.getItem(`login`), Validation.IS_EMPTY);
+  const password = useInput(localStorage.getItem(`password`), Validation.IS_EMPTY);
 
   const dispatch = useDispatch();
 
@@ -33,6 +32,8 @@ const LoginForm = props => {
     } else {
       setError(false);
       dispatch(requireAuthorization(AuthorizationStatus.AUTH));
+      localStorage.setItem(`login`, name.value);
+      localStorage.setItem(`password`, password.value);
       formCloseHandler();
     }
   };
@@ -84,22 +85,29 @@ const LoginForm = props => {
             </span>
           )}
         </label>
-
-        <label className="login-form__label">
-          Пароль
-          <input
-            aria-label="Пароль"
-            className={`login-form__field ${isError && password.isEmpty && `error`}`}
-            type={`${!isView ? `password` : `text`}`}
-            name="password"
-            required={true}
-            value={password.value}
-            onChange={evt => password.onChange(evt)}
-            onBlur={evt => password.onBlur(evt)}
-          />
+        <div className="login-form__button-wrapper">
+          <label className="login-form__label">
+            Пароль
+            <input
+              aria-label="Пароль"
+              className={`login-form__field ${isError && password.isEmpty && `error`}`}
+              type={`${!isView ? `password` : `text`}`}
+              name="password"
+              required={true}
+              value={password.value}
+              onChange={evt => password.onChange(evt)}
+              onBlur={evt => password.onBlur(evt)}
+            />
+            {password.isEmpty && (
+              <span className={`login-form__errorText ${isError && password.isEmpty && `error`}`}>
+                Пожалуйста, заполните поле
+              </span>
+            )}
+          </label>
           <button
             className="login-form__pass-btn button"
             aria-label="Посмотреть пароль"
+            type="button"
             onClick={() => setView(!isView)}>
             <svg
               width="22"
@@ -113,15 +121,10 @@ const LoginForm = props => {
               />
             </svg>
           </button>
-          {password.isEmpty && (
-            <span className={`login-form__errorText ${isError && password.isEmpty && `error`}`}>
-              Пожалуйста, заполните поле
-            </span>
-          )}
-        </label>
-        <Link to="#" className="login-form__link">
+        </div>
+        <a href="#!" className="login-form__link">
           Забыли пароль?
-        </Link>
+        </a>
         <button className="login-form__submit button" type="submit">
           Войти
         </button>

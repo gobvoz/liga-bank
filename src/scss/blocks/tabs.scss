@@ -1,17 +1,14 @@
 .tabs {
   width: 100%;
   min-height: 410px;
-  box-sizing: border-box;
   margin: 0 auto;
 
   @media screen and(max-width: $tablet) {
-    max-width: 768px;
     min-height: 380px;
     background-color: $background-blue;
   }
 
   @media screen and(max-width: $mobile) {
-    max-width: 320px;
     min-height: 362px;
   }
 }
@@ -21,9 +18,8 @@
   justify-content: space-between;
   width: 100%;
   min-height: 410px;
-  padding: 52px 135px 0 70px;
+  padding: 52px 135px 60px 70px;
   background-color: $background-blue;
-  box-sizing: border-box;
 
   @media screen and(max-width: $tablet) {
     min-height: 380px;
@@ -40,7 +36,6 @@
 .tabs__content {
   width: 50%;
   padding-right: 60px;
-  box-sizing: border-box;
 
   @media screen and(max-width: $tablet) {
     width: 55%;
@@ -81,6 +76,7 @@
   margin-bottom: 15px;
   margin-left: 20px;
   padding-right: 20px;
+
   font-style: normal;
   font-weight: 400;
   font-size: 18px;

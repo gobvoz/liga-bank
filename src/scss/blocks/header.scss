@@ -8,7 +8,6 @@
   padding-top: 27px;
   padding-bottom: 34px;
   z-index: 10;
-  box-sizing: border-box;
   background-color: $background-white;
 
   @media screen and(max-width: $tablet) {
@@ -26,18 +25,15 @@
 
 .page-header__wrapper {
   margin: 0;
-  display: flex;
-
-  @media screen and(max-width: $mobile) {
-    justify-content: space-between;
-  }
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  grid-template-rows: min-content;
 }
 
 .page-header__wrapper > .logo {
   margin: 0;
-  
+
   @media screen and(max-width: $mobile) {
-    margin-left: -122px;
-    z-index: 5;
+    margin-left: 14px;
   }
 }

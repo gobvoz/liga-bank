@@ -1,17 +1,27 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useInput } from '../../../hooks/hooks';
-import { Validations } from '../../../const';
+import { LoanPurpose, Validation } from '../../../const';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeOfferNumber } from '../../../store/actions';
+import { completePopupOpen } from '../../../utils';
 
 const Step3 = props => {
   const { setActive, openPopup } = props;
-  const { offer } = useSelector(state => state.DATA);
+  const { purpose, offer } = useSelector(state => state.DATA);
   const [isError, setError] = useState(false);
-  const name = useInput(``, Validations.IS_EMPTY);
-  const phone = useInput(``, Validations.IS_EMPTY);
-  const mail = useInput(``, Validations.IS_EMAIL);
+  const name = useInput(
+    localStorage.getItem(`name`) ? localStorage.getItem(`name`) : ``,
+    Validation.IS_EMPTY,
+  );
+  const phone = useInput(
+    localStorage.getItem(`phone`) ? localStorage.getItem(`phone`) : ``,
+    Validation.IS_EMPTY,
+  );
+  const mail = useInput(
+    localStorage.getItem(`mail`) ? localStorage.getItem(`mail`) : ``,
+    Validation.IS_EMAIL,
+  );
 
   const dispatch = useDispatch();
 
@@ -28,9 +38,12 @@ const Step3 = props => {
     } else {
       dispatch(changeOfferNumber(offer.id));
       setError(false);
+      localStorage.setItem(`name`, name.value);
+      localStorage.setItem(`phone`, phone.value);
+      localStorage.setItem(`mail`, mail.value);
       resetForm();
       setActive(false);
-      openPopup(true);
+      completePopupOpen(openPopup);
     }
   };
 
@@ -40,7 +53,8 @@ const Step3 = props => {
         evt.key === `ArrowLeft` ||
         evt.key === `ArrowRight` ||
         evt.key === `Backspace` ||
-        evt.key === `Tab`
+        evt.key === `Tab` ||
+        evt.key === `Delete`
       )
     ) {
       evt.preventDefault();
@@ -77,10 +91,14 @@ const Step3 = props => {
         </li>
         <li className="step3__item">
           <span className="step3__name">Цель кредита</span>
-          <span className="step3__data">{offer.loanPurpose}</span>
+          <span className="step3__data">
+            {purpose === LoanPurpose.MORTGAGE ? `Ипотека` : `Автокредит`}
+          </span>
         </li>
         <li className="step3__item">
-          <span className="step3__name">Стоимость недвижимости</span>
+          <span className="step3__name">
+            {purpose === LoanPurpose.MORTGAGE ? `Стоимость недвижимости` : `Стоимость автомобиля`}
+          </span>
           <span className="step3__data">{`${offer.loanPrice.toLocaleString(`ru-RU`)} рублей`}</span>
         </li>
         <li className="step3__item">

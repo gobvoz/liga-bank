@@ -1,26 +1,18 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import HeaderMenu from '../header-menu/header-menu';
 import UserBlock from '../user-block/user-block';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { changeMenu } from '../../store/actions';
-import { MENU_TYPE } from '../../const';
+import { AppRoute } from '../../const';
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
-  const dispatch = useDispatch();
 
   return (
     <header className="page-header">
       <div className="container">
         <div className="page-header__wrapper">
           <div className="page-header__logo logo">
-            <Link
-              to="/"
-              className="logo__link"
-              onClick={() => {
-                dispatch(changeMenu(MENU_TYPE.SERVICES));
-              }}>
+            <Link to={AppRoute.ROOT} className="logo__link">
               <div className="logo__wrapper">
                 <picture>
                   <source
