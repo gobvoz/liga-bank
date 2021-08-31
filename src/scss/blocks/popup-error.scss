@@ -1,0 +1,42 @@
+.popup-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500px;
+  height: 225px;
+  padding: 50px 58px;
+  border: none;
+  border-radius: 4px;
+  background-color: $background-blue;
+
+  @media screen and(max-width: $tablet) {
+    width: 678px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    width: 290px;
+    height: 201px;
+  }
+}
+
+.popup-error__message {
+  margin: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 140%;
+  color: $black;
+
+  @media screen and(max-width: $mobile) {
+    font-size: 18px;
+  }
+}
+
+.popup-error__text {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: $label-black;
+}

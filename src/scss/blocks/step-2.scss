@@ -1,0 +1,22 @@
+.step2 {
+  margin-top: 17px;
+
+  @media screen and(max-width: $tablet) {
+    margin-top: 32px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    margin-top: 22px;
+  }
+}
+
+.step2__field {
+  margin-top: 10px;
+  padding: 0;
+  text-align: center;
+}
+
+.step2__field.field-error {
+  color: $text-error-red;
+  border: 1px solid $text-error-red;
+}

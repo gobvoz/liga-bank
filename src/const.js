@@ -106,7 +106,7 @@ export const TABS_MENU = [
   },
 ];
 
-export const PlacemarkCords = [
+export const PlaceMarkCords = [
   [55.7499, 37.629],
   [55.7961, 49.1066],
   [57.153, 65.5441],
@@ -116,10 +116,50 @@ export const PlacemarkCords = [
 
 export const LoanPurpose = {
   MORTGAGE: `mortgage`,
-  AUTO: `auto`
+  AUTO: `auto`,
 };
 
 export const PurposeValue = {
   mortgage: `Ипотечное кредитование`,
-  auto: `Автомобильное кредитование`
+  auto: `Автомобильное кредитование`,
+};
+
+export const PRICES_DATA = {
+  START_MORTGAGE: 1200000,
+  END_MORTGAGE: 25000000,
+  START_AUTO: 500000,
+  END_AUTO: 5000000,
+};
+
+export const PRICE_STEP = {
+  MORTGAGE: 100000,
+  AUTO: 50000,
+};
+
+export const FIRST_PAYMENT_RATE = {
+  MORTGAGE: 10,
+  AUTO: 20,
+  MAX: 100,
+};
+
+export const LOAN_TERM = {
+  MIN_MORTGAGE: 5,
+  MIN_AUTO: 1,
+  MAX_MORTGAGE: 30,
+  MAX_AUTO: 5,
+};
+
+export const MOTHER = 470000;
+
+export const MIN_FIRST_PAYMENT_RATE = 15;
+
+export const MONTHS = 12;
+
+export const AUTO_PRICE_RATE = 2000000;
+
+export const SALARY_RATE = 45;
+
+export const LOAN_AMOUNT_MIN = {
+  MORTGAGE: 500000,
+  AUTO: 200000,
 };

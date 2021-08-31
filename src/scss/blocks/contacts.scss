@@ -1,8 +1,18 @@
 .contact {
   width: 100%;
+  margin-top: 95px;
+
+  @media screen and(max-width: $tablet) {
+    margin-top: 67px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    margin-top: 52px;
+  }
 }
 
 .contact__title {
+  margin-top: 0;
   font-style: normal;
   font-weight: 00;
   font-size: 41px;
@@ -24,6 +34,7 @@
   background-image: url('../../img/bg-map.png');
   background-repeat: no-repeat;
   background-size: cover;
+  box-sizing: border-box;
 
   @media screen and(max-width: $tablet) {
     margin-top: 45px;

@@ -1,0 +1,243 @@
+.step__title {
+  margin: 16px 0 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 140%;
+  color: $black;
+
+  @media screen and(max-width: $tablet) {
+    margin: 3px 0 0;
+    font-size: 18px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    margin: 2px 0 0;
+    font-size: 16px;
+  }
+}
+
+.step__label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 22px;
+
+  @media screen and(max-width: $tablet) {
+    margin-top: 18px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    width: 290px;
+    margin-top: 14px;
+  }
+}
+
+.step__label--checkbox {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-top: 25px;
+
+  &:before {
+    content: '';
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    text-align: center;
+    background-color: $blue;
+    border-radius: 2px;
+  }
+
+  @media screen and(max-width: $tablet) {
+    margin-top: 21px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    margin-top: 14px;
+    font-size: 14px;
+  }
+}
+
+.step__checkbox:checked + .step__label--checkbox {
+  &:after {
+    content: url('../../img/small-check-icon.svg');
+    position: absolute;
+    top: -3px;
+    left: 4px;
+  }
+}
+
+.step__field {
+  padding-left: 23px;
+  width: 600px;
+  min-height: 60px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: $black;
+  border: 1px solid $black;
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  &::placeholder {
+    color: $black;
+  }
+
+  @media screen and(max-width: $tablet) {
+    width: 678px;
+    background-color: $background-white;
+  }
+
+  @media screen and(max-width: $mobile) {
+    width: 290px;
+    padding-left: 13px;
+  }
+}
+
+.step__button {
+  position: absolute;
+  top: 25px;
+  right: 23px;
+  width: 18px;
+  height: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  background-color: $background-white;
+
+  @media screen and(max-width: $mobile) {
+    right: 15px;
+  }
+}
+
+.step__button.button--close {
+  transform: rotate(180deg);
+}
+
+.step__button.button--increase {
+  top: 50px;
+}
+
+.step__button.button--decrease {
+  top: 50px;
+  left: 23px;
+
+  @media screen and(max-width: $mobile) {
+    left: 15px;
+  }
+}
+
+.step__comments-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.step__comments {
+  margin-top: 7px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  color: $footer-gray;
+}
+
+.step__range {
+  -webkit-appearance: none;
+  width: 100%;
+  margin-top: 20px;
+  background: transparent;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: $blue;
+    cursor: pointer;
+    margin-top: -7px;
+  }
+
+  &::-moz-range-thumb {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: $blue;
+    cursor: pointer;
+  }
+
+  &::-ms-thumb {
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background: $blue;
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1px;
+    cursor: pointer;
+    background: $gray;
+  }
+
+  &:focus::-webkit-slider-runnable-track {
+    background: $gray;
+  }
+
+  &::-moz-range-track {
+    width: 100%;
+    height: 1px;
+    cursor: pointer;
+    background: $gray;
+  }
+
+  &::-ms-track {
+    width: 100%;
+    height: 1px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 1px 0;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    background: $blue;
+  }
+
+  &:focus::-ms-fill-lower {
+    background: $gray;
+  }
+
+  &::-ms-fill-upper {
+    background: $gray;
+  }
+
+  &:focus::-ms-fill-upper {
+    background: $gray;
+  }
+}

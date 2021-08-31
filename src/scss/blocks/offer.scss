@@ -1,0 +1,193 @@
+.offer {
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  height: 389px;
+  margin-top: 16px;
+  background-color: $background-blue;
+  border: none;
+  border-radius: 4px;
+
+  @media screen and(max-width: $tablet) {
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    height: 433px;
+    min-width: 290px;
+    margin-top: 30px;
+  }
+}
+
+.offer__title {
+  margin-top: 60px;
+  margin-bottom: 0;
+  margin-left: 58px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 140%;
+  color: $black;
+
+  @media screen and(max-width: $tablet) {
+    margin-left: 60px;
+    margin-top: 55px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    margin-left: 15px;
+    margin-top: 34px;
+    font-size: 18px;
+  }
+}
+
+.offer__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content min-content;
+  margin-top: 25px;
+  padding-left: 60px;
+  padding-right: 55px;
+
+  @media screen and(max-width: $tablet) {
+    grid-template-columns: max-content max-content;
+  }
+
+  @media screen and(max-width: $mobile) {
+    grid-template-columns: max-content;
+    grid-template-rows: min-content min-content min-content min-content;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.offer__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.offer__data {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 140%;
+  color: $black;
+
+  @media screen and(max-width: $mobile) {
+    font-size: 18px;
+  }
+}
+
+.offer__comment {
+  margin-top: 2px;
+  margin-bottom: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: $label-black;
+
+  @media screen and(max-width: $mobile) {
+    margin-top: 0;
+    font-size: 16px;
+  }
+}
+
+.offer__button {
+  align-self: center;
+  width: 382px;
+  margin-top: 33px;
+  font-size: 16px;
+  line-height: 51px;
+  color: $white;
+  background-color: $blue;
+
+  @media screen and(max-width: $tablet) {
+    align-self: start;
+    margin-left: 60px;
+    width: 558px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    align-self: center;
+    margin-left: 0;
+    width: 260px;
+    font-size: 14px;
+  }
+}
+
+.loan-amount {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  @media screen and(max-width: $mobile) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+}
+
+.loan-rate {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  margin-left: 34px;
+
+  @media screen and(max-width: $tablet) {
+    margin-left: 50px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    margin-top: 13px;
+    margin-left: 0;
+  }
+}
+
+.loan-payment {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin-top: 27px;
+
+  @media screen and(max-width: $mobile) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    margin-top: 13px;
+  }
+}
+
+.loan-salary {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  margin-top: 27px;
+  margin-left: 34px;
+
+  @media screen and(max-width: $tablet) {
+    margin-left: 50px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    margin-top: 13px;
+    margin-left: 0;
+  }
+}

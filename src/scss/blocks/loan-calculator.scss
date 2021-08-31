@@ -1,10 +1,18 @@
 .loan-calculator {
-  margin-top: 110px;
+  margin-top: 94px;
+
+  @media screen and(max-width: $tablet) {
+    margin-top: 67px;
+  }
+
+  @media screen and(max-width: $mobile) {
+    margin-top: 53px;
+  }
 }
 
 .loan-calculator__title {
   font-style: normal;
-  font-weight: 00;
+  font-weight: 700;
   font-size: 41px;
   line-height: 140%;
   color: $black;
@@ -12,7 +20,7 @@
   @media screen and(max-width: $tablet) {
     font-size: 32px;
   }
-  
+
   @media screen and(max-width: $mobile) {
     font-size: 22px;
   }
@@ -20,6 +28,68 @@
 
 .loan-calculator__wrapper {
   display: grid;
-  grid-template-rows: auto; // repeat(3 * max-content);
+  grid-template-rows: max-content max-content max-content;
   grid-template-columns: max-content 1fr;
+
+  @media screen and(max-width: $tablet) {
+    grid-template-rows: max-content max-content max-content max-content;
+    grid-template-columns: 1fr;
+  }
+}
+
+.loan-calculator__step1 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+  @media screen and(max-width: $tablet) {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+}
+
+.loan-calculator__offer {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  justify-self: end;
+
+  @media screen and(max-width: $tablet) {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+}
+
+.loan-calculator__step2 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+  @media screen and(max-width: $tablet) {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+}
+
+.loan-calculator__step3 {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+  @media screen and(max-width: $tablet) {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
 }
