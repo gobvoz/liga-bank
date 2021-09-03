@@ -6,41 +6,41 @@ const MainContact = () => {
     <section className="page-main__contact contact">
       <div id="contact" className="container">
         <h2 className="contact__title">Отделения Лига Банка</h2>
-        <YMaps>
-          <div className="contact__map map">
-            <Map
-              className="map__body"
-              defaultState={{
-                center: [56.86491379, 60.36021131],
-                zoom: 5,
-                controls: [],
-              }}>
-              <ZoomControl
-                options={{
-                  position: { right: `10px`, bottom: `120px` },
-                }}
-              />
-              <GeolocationControl
-                options={{
-                  position: { right: `10px`, bottom: `80px` },
-                }}
-              />
-              {PLACE_MARK_CORDS.map((mark, index) => (
-                <Placemark
-                  key={index}
-                  geometry={mark}
-                  options={{
-                    iconLayout: `default#image`,
-                    iconImageHref: `./img/location.svg`,
-                    iconImageSize: [37, 42],
-                    iconImageOffset: [-17, -42],
-                  }}
-                />
-              ))}
-            </Map>
-          </div>
-        </YMaps>
       </div>
+      <YMaps>
+        <div className="contact__map map">
+          <Map
+            className="map__body"
+            defaultState={{
+              center: [56.86491379, 60.36021131],
+              zoom: 5,
+              controls: [],
+            }}>
+            <ZoomControl
+              options={{
+                position: { right: `10px`, bottom: `120px` },
+              }}
+            />
+            <GeolocationControl
+              options={{
+                position: { right: `10px`, bottom: `80px` },
+              }}
+            />
+            {PLACE_MARK_CORDS.map((mark, index) => (
+              <Placemark
+                key={index}
+                geometry={mark}
+                options={{
+                  iconLayout: `default#image`,
+                  iconImageHref: `./img/location.svg`,
+                  iconImageSize: [37, 42],
+                  iconImageOffset: [-17, -42],
+                }}
+              />
+            ))}
+          </Map>
+        </div>
+      </YMaps>
     </section>
   );
 };

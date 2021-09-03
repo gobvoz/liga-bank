@@ -38,7 +38,8 @@ const Step2 = props => {
   );
   const [isActiveElement, setActiveElement] = useState(document.getElementById(`name`));
   const [isGap, setGap] = useState(Units.PRICE);
-
+  const [isDecreaseButtonDisabled, setDecreaseButtonDisable] = useState(true);
+  const [isIncreaseButtonDisabled, setIncreaseButtonDisable] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -65,6 +66,27 @@ const Step2 = props => {
     purpose === LoanPurpose.MORTGAGE ? FirstPaymentRate.MORTGAGE : FirstPaymentRate.AUTO;
   const minLoanTerm = purpose === LoanPurpose.MORTGAGE ? LoanTerm.MIN_MORTGAGE : LoanTerm.MIN_AUTO;
   const maxLoanTerm = purpose === LoanPurpose.MORTGAGE ? LoanTerm.MAX_MORTGAGE : LoanTerm.MAX_AUTO;
+
+  useEffect(() => {
+    let newPrice;
+    if (isPrice.search(`рублей`) > 0) {
+      newPrice = getNumberFromString(isPrice, `рублей`);
+    } else {
+      newPrice = parseInt(isPrice, 10);
+    }
+
+    if (newPrice === minPrice) {
+      setDecreaseButtonDisable(true);
+    } else if (isDecreaseButtonDisabled) {
+      setDecreaseButtonDisable(false);
+    }
+
+    if (newPrice === maxPrice) {
+      setIncreaseButtonDisable(true);
+    } else if (isIncreaseButtonDisabled) {
+      setIncreaseButtonDisable(false);
+    }
+  }, [isPrice]);
 
   const setNewPrice = newPrice => {
     dispatch(changePrice(newPrice));
@@ -187,7 +209,6 @@ const Step2 = props => {
 
   const loanTermChangeHandler = evt => {
     const newTerm = parseInt(evt.target.value, 10);
-    console.log(newTerm);
     if (newTerm) {
       setLoanTerm(`${newTerm.toString()}${getLoanTermDescription(newTerm)}`);
       dispatch(changeLoanTerm(newTerm));
@@ -253,8 +274,9 @@ const Step2 = props => {
         </span>
         <button
           className="step__button button button--decrease"
-          aria-label="Увеличить"
-          onClick={priceDownClickHandler}>
+          aria-label="Уменьшить"
+          onClick={priceDownClickHandler}
+          disabled={isDecreaseButtonDisabled ? true : false}>
           <svg
             width="16"
             height="2"
@@ -266,8 +288,9 @@ const Step2 = props => {
         </button>
         <button
           className="step__button button button--increase"
-          aria-label="Уменьшить"
-          onClick={priceUpClickHandler}>
+          aria-label="Увеличить"
+          onClick={priceUpClickHandler}
+          disabled={isIncreaseButtonDisabled ? true : false}>
           <svg
             width="16"
             height="16"

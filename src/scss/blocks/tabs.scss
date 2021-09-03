@@ -97,7 +97,7 @@
   @media screen and(max-width: $mobile) {
     margin-left: 15px;
     margin-bottom: 12px;
-    padding-right: 16px;
+    padding-right: 60px;
     font-size: 14px;
 
     &:before {
@@ -160,7 +160,7 @@
   }
 
   @media screen and(max-width: $mobile) {
-    width: 290px;
+    width: 100%;
     margin-top: 11px;
     font-size: 14px;
     line-height: 43px;

@@ -119,10 +119,10 @@
 
 .step__button {
   position: absolute;
-  top: 25px;
-  right: 23px;
-  width: 18px;
-  height: 11px;
+  top: 13px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,12 +141,12 @@
 }
 
 .step__button.button--increase {
-  top: 50px;
+  top: 40px;
 }
 
 .step__button.button--decrease {
-  top: 50px;
-  left: 23px;
+  top: 40px;
+  left: 10px;
 
   @media screen and(max-width: $mobile) {
     left: 15px;

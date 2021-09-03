@@ -8,7 +8,7 @@
   padding-top: 27px;
   padding-bottom: 34px;
   z-index: 10;
-  background-color: $background-white;
+  background-color: $background-blue;
 
   @media screen and(max-width: $tablet) {
     min-height: 69px;
@@ -34,6 +34,6 @@
   margin: 0;
 
   @media screen and(max-width: $mobile) {
-    margin-left: 14px;
+    margin-left: 30px;
   }
 }

@@ -5,12 +5,12 @@
   min-height: 400px;
 
   @media screen and(max-width: $tablet) {
-    max-width: 768px;
+    // max-width: 768px;
     min-height: 300px;
   }
 
   @media screen and(max-width: $mobile) {
-    max-width: 320px;
+    // max-width: 320px;
     min-height: 226px;
   }
 }

@@ -104,7 +104,7 @@ const Offer = props => {
           <h3 className="offer__title">Наше предложение</h3>
           <div className="offer__wrapper">
             <div className="offer__item loan-amount">
-              <p className="offer__data">{`${getLoanAmount().toLocaleString(`ru-RU`)}`}</p>
+              <p className="offer__data">{`${getLoanAmount().toLocaleString(`ru-RU`)} рублей`}</p>
               <p className="offer__comment">
                 {purpose === LoanPurpose.MORTGAGE ? `Сумма ипотеки` : `Сумма автокредита`}
               </p>
