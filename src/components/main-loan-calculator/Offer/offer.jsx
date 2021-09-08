@@ -110,7 +110,9 @@ const Offer = props => {
               </p>
             </div>
             <div className="offer__item loan-rate">
-              <p className="offer__data">{`${getLoanRate().toLocaleString(`ru-RU`)}%`}</p>
+              <p className="offer__data">{`${getLoanRate().toLocaleString(`ru-RU`, {
+                minimumFractionDigits: 2,
+              })}%`}</p>
               <p className="offer__comment">Процентная ставка</p>
             </div>
             <div className="offer__item loan-payment">

@@ -17,7 +17,6 @@
 
   @media screen and(max-width: $mobile) {
     height: 433px;
-    width: 290px;
     margin-top: 30px;
   }
 }
@@ -48,12 +47,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: min-content min-content;
-  margin-top: 25px;
+  margin-top: 23px;
   padding-left: 60px;
   padding-right: 55px;
 
   @media screen and(max-width: $tablet) {
-    grid-template-columns: max-content max-content;
+    grid-template-columns: 1fr 1fr;
+    max-width: 570px;
   }
 
   @media screen and(max-width: $mobile) {
@@ -108,8 +108,7 @@
   background-color: $blue;
 
   @media screen and(max-width: $tablet) {
-    align-self: start;
-    margin-left: 60px;
+    align-self: center;
     width: 558px;
   }
 
@@ -143,7 +142,7 @@
   margin-left: 34px;
 
   @media screen and(max-width: $tablet) {
-    margin-left: 62px;
+    margin-left: 0;
   }
 
   @media screen and(max-width: $mobile) {
@@ -161,7 +160,7 @@
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
-  margin-top: 24px;
+  margin-top: 25px;
 
   @media screen and(max-width: $mobile) {
     grid-column-start: 1;
@@ -177,11 +176,11 @@
   grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 3;
-  margin-top: 24px;
+  margin-top: 25px;
   margin-left: 34px;
 
   @media screen and(max-width: $tablet) {
-    margin-left: 62px;
+    margin-left: 0;
   }
 
   @media screen and(max-width: $mobile) {
